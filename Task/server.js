@@ -1,14 +1,30 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const morgon = require('morgan')
+const express = require('express');
+const dotenv = require('dotenv');
+const morgan = require('morgan');
+const bodyparser = require('body-parser');
+const path = require('path');
+
 const app = express();
 
-dotenv.config({path:'config.env'})
-const PORT = process.env.PORT||8080
+dotenv.config({ path: 'config.env' });
+const PORT = process.env.PORT || 8080;
 
-app.get('/',(req,res)=>{
-  res.send("Super Market - Products Maintenance Application")
+//log requests
+app.use(morgan('tiny'));
 
-})
-app.listen(PORT.()=>(console.log('Server is running on http://localhost:${PORT}')))
+//parse request to body-parser
+app.use(bodyparser.urlencoded({ extended: true }));
 
+//set view engine
+app.set('view engine', 'ejs');
+//app.set("views".path.resolve(__dirname,"ejs"))
+
+//load assets
+//app.use('/css'.express.static(path.resolve(__dirname, 'css')));
+
+app.get('/', (req, res) => {
+  res.send('Super Market - Products Maintenance Application');
+});
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
