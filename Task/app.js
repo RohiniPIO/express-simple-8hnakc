@@ -14,13 +14,13 @@ app.listen(port, () => {
 
 const products = [
   {
-    ProductId: 1,
+    Id: 1,
     Name: 'Kitkat',
     Cost: 10,
   },
 
   {
-    ProductId: 2,
+    Id: 2,
     Name: 'Dairy Milk',
     Cost: 40,
   },
@@ -32,8 +32,8 @@ router.get('/', (req, res) => {
 
 //get based on Product id
 router.get('/:Id', (req, res) => {
-  const Id = parseInt(req.parms.Id);
-  const currentProduct = products.filter((x) => x.ProductId === Id)[0];
+  const ProductId = parseInt(req.parms.Id);
+  const currentProduct = products.filter((x) => x.Id === ProductId)[0];
   if (currentproduct) {
     res.json(currentproduct);
   } else {
@@ -44,7 +44,7 @@ router.get('/:Id', (req, res) => {
 //Validate Product
 validateProduct = (product) => {
   const message = '';
-  if (Product.ProductId) {
+  if (Product.Id) {
     message = 'Product Id not found';
   }
 
