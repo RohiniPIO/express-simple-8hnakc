@@ -1,0 +1,24 @@
+{
+  "Products": [
+    {
+      "id": 1,
+      "name": "Kitkat",
+      "cost": 20,
+      "Description": "Red Wrapper Chocolate"
+    },
+
+    {
+      "id": 2,
+      "name": "Dairy Milk",
+      "cost": 40,
+      "Description": "Blue Wrapper Chocolate"
+    },
+
+    {
+      "id": 3,
+      "name": "5Star",
+      "cost": 10,
+      "Description": "Yellow wrapper Chocolate"
+    }
+  ]
+}
